@@ -4,7 +4,7 @@ import { marketerService } from '../services/marketerService.js'
 const store = createStore({
     strict: true,
     state: {
-
+        marketers
     },
     getters: {
         marketers({ state }) {
