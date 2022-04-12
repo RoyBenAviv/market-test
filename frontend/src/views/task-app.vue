@@ -1,6 +1,8 @@
 <template>
     <section class="task-app">
+        <img src="../assets/images/logo.png" alt="">
         <form>
+            <h1>Create account</h1>
             <label>First name
                 <input v-model="marketer.firstName" type="text">
             </label>
@@ -18,10 +20,13 @@
             </label>
             <div>
                 <span>How many years of exprience do you have with Facebook Marketing?</span>
+                <div>
                 <label v-for="data in exprienceData" :key="data">
                     <input v-model="marketer.exprience" type="radio" :value="data">
                     {{ data }}
                 </label>
+                </div>
+
             </div>
             <div>
                 <label>
@@ -30,7 +35,7 @@
                     ${{ range }}
                 </label>
             </div>
-
+                <button>Continue</button>
         </form>
 
         {{ marketer }}
