@@ -3,7 +3,7 @@ import { httpService } from './http.service'
 
 axios.defaults.withCredentials = true
 
-export const MarketService = {
+export const marketService = {
   query,
   getMarketerById,
   removeMarketer,

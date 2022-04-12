@@ -1,10 +1,10 @@
 import { createStore } from 'vuex'
-import { marketService } from '../services/marketService.js'
+import { marketService } from '../services/market.service.js'
 
 const store = createStore({
   strict: true,
   state: {
-    marketers,
+    marketers: null,
   },
   getters: {
     marketers({ state }) {
@@ -15,9 +15,9 @@ const store = createStore({
     setMarketers({ marketers }, { marketersToSet }) {
       marketers = marketersToSet
     },
-    addMarketer(state, {marketer}) {
-        state.marketers.push(marketer)
-    }
+    addMarketer(state, { marketer }) {
+      state.marketers.push(marketer)
+    },
   },
   actions: {
     async loadMarketers({ commit }) {
