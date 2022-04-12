@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import marketerPreview from '../cmps/marketer-preview.vue'
+import marketerPreview from '../cmps/marketer-preview.cmp.vue'
 export default {
     components: {
         marketerPreview
@@ -31,7 +31,7 @@ export default {
         }
     },
     mounted() {
-        if (userService.getLoggedInUser().isAdmin) return this.$router.push('/')
+        // if (userService.getLoggedInUser().isAdmin) return this.$router.push('/')
         this.loadMarketers()
     },
     methods: {
