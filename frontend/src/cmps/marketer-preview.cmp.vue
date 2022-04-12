@@ -1,16 +1,13 @@
 <template>
-  <section class="marketer-preview">
-    <tr>
-      <td>{{ marketer?.firstName || "not required" }}</td>
-      <td>{{ marketer?.lastName || "not required" }}</td>
-      <td>{{ marketer?.email }}</td>
-      <td>{{ marketer?.website || "not required" }}</td>
-      <td>{{ marketer?.linkedin || "not required" }}</td>
-      <td>{{ marketer?.experience || "not required" }}</td>
-      <td>{{ marketer?.budget || "not required" }}</td>
-      <td>{{ marketer?.createdAt || "not required" }}</td>
-    </tr>
-  </section>
+  <tr class="marketer-preview">
+    <td class="name">{{ marketer?.firstName || "-" }}</td>
+    <td class="name">{{ marketer?.lastName || "-" }}</td>
+    <td>{{ marketer?.email }}</td>
+    <td>{{ marketer?.website || "-" }}</td>
+    <td>{{ marketer?.linkedin || "-" }}</td>
+    <td>{{ marketer?.experience || "-" }}</td>
+    <td>$ {{ marketer?.budget || "-" }}</td>
+  </tr>
 </template>
 
 <script>
@@ -21,7 +18,7 @@ export default {
   },
   computed: {},
   created() {
-    console.log(this.marketer)
-  }
-}
+    console.log(this.marketer);
+  },
+};
 </script>
