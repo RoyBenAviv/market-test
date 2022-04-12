@@ -1,5 +1,4 @@
 Array.prototype.autoSortObj = function (objKey, isAsc) {
-    console.log(this[0][objKey])
     if (!this.length || !this[0][objKey]) return this
     // params:
     // objKey = the key that holds the value to sort by
@@ -8,11 +7,6 @@ Array.prototype.autoSortObj = function (objKey, isAsc) {
     const sortDir = isAsc ? 1 : -1
     // console.log(this)
     const sortType = typeof (this[0][objKey]) === 'string' ? 'string' : 'number'
-    if (sortType === 'string') return this.sort((a, b) => a[objKey].toUpperCase().localeCompare(b[objKey].toUpperCase()) * sortDir)
+    if (sortType === 'string') return this.sort((a, b) => a[objKey]?.toUpperCase().localeCompare(b[objKey]?.toUpperCase()) * sortDir)
     else if (sortType === 'number') return this.sort((a, b) => a[objKey] - b[objKey] * sortDir)
-}
-
-
-export const utilService = {
-
 }
