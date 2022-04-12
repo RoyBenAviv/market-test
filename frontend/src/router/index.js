@@ -10,11 +10,10 @@ const router = createRouter({
       component: taskApp
     },
     {
-      path: '/dashobard',
+      path: '/dashboard',
       name: 'dashboard',
       component: appDashboard
     }
-
   ]
 })
 
