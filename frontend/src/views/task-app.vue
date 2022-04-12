@@ -2,7 +2,13 @@
     <section class="task-app">
         <form>
             <label>First name
-                <input v-model="marketer.firstName" type="email">
+                <input v-model="marketer.firstName" type="text">
+            </label>
+            <label>Last name
+                <input v-model="marketer.lastName" type="text">
+            </label>
+            <label>Email address
+                <input v-model="marketer.email" type="email">
             </label>
         </form>
     </section>
