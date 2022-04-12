@@ -18,16 +18,22 @@
             </label>
             <div>
                 <span>How many years of exprience do you have with Facebook Marketing?</span>
-                <label>
-                    no exprience
-                    <input v-model="marketer.exprience" type="radio">
+                <label v-for="data in exprienceData" :key="data">
+                    <input v-model="marketer.exprience" type="radio" :value="data">
+                    {{ data }}
                 </label>
             </div>
-            <!-- <label>Website add
-                <input v-model="marketer.email" type="text">
-            </label> -->
+            <div>
+                <label>
+                    what was the biggest campaign budget you have managed in a single month?
+                    <input type="range" min="1000" max="500000" v-model="marketer.range">
+                    ${{ range }}
+                </label>
+            </div>
 
         </form>
+        <button>Submit</button>
+        <!-- {{ marketer }} -->
     </section>
 </template>
 
@@ -44,11 +50,13 @@ export default {
                 firstName: '',
                 lastName: '',
                 email: '',
-                website:'',
-                linkedin:'',
-                exprience:'',
+                website: '',
+                linkedin: '',
+                exprience: '',
+                range: 1000
 
             },
+            exprienceData: ['no exprience', '0-1 years', '1-2 years', '2 or more years']
 
         }
     },
@@ -59,6 +67,9 @@ export default {
     },
     methods: {},
     computed: {
+        range() {
+            return this.marketer.range
+        }
     },
     unmounted() {
     },
