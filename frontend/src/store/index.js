@@ -1,14 +1,14 @@
 import { createStore } from 'vuex'
 import { marketService } from '../services/market.service.js'
-
+import { utilService } from '../services/util.service.js'
 const store = createStore({
   strict: true,
   state: {
-    marketers: null,
+    marketers: [],
   },
   getters: {
-    marketers({ state }) {
-      return state.marketers
+    marketers: (state) => ({ type, isAsc }) => {
+      return Array.from(state.marketers).autoSortObj(type, isAsc)
     },
   },
   mutations: {
@@ -23,6 +23,7 @@ const store = createStore({
     async loadMarketers({ commit }) {
       try {
         const marketers = await marketService.query()
+        console.log(marketers)
         commit({ type: 'setMarketers', marketersToSet: marketers })
       } catch (err) {
         console.log(err)
@@ -31,7 +32,7 @@ const store = createStore({
     },
     async addMarketer({ commit }, { marketer }) {
       try {
-        var marketer = await marketService.add(marketer)
+        var marketer = await marketService.updateMarketer(marketer)
         commit({ type: 'addMarketer', marketer })
       } catch (err) {
         console.log(err)

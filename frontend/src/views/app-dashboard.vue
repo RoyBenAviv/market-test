@@ -24,51 +24,39 @@ export default {
     components: {
         marketerPreview,
     },
-    data() {
-        return {
-            isReady: false,
-        }
-    },
-    mounted() {
-        if (userService.getLoggedInUser().isAdmin) return this.$router.push("/")
-        this.loadMarketers()
-    },
     methods: {
         async loadMarketers() {
             try {
                 this.isReady = false
-                await this.$store.dispatch("loadMarketers")
-                this.isReady - true
+                await this.$store.dispatch('loadMarketers')
+                this.isReady = true
             } catch (err) {
                 console.log(err)
                 throw err
             }
         },
+        onSetSort(sortBy) {
+            // this.srot
+        }
     },
-    marketers() {
-        return this.$store.getters.marketers
+    data() {
+        return {
+            isReady: false,
+            sortBy: {
+                type: '',
+                isAsc: false
+            }
+        }
+    },
+    computed: {
+        marketers() {
+            return this.$store.getters.marketers(this.sortBy)
+        },
     },
     mounted() {
         // if (userService.getLoggedInUser().isAdmin) return this.$router.push('/')
         this.loadMarketers()
-    },
-    methods: {
-        async loadMarketers() {
-            try {
-                this.isReady = false
-                await this.$store.dispatch("loadMarketers")
-                this.isReady - true
-            } catch (err) {
-                console.log(err)
-                throw err
-            }
-        },
-    },
-    computed: {
-        marketers() {
-            return this.$store.getters.marketers
-        },
-    },
-    //   }
+    }
+
 }
 </script>

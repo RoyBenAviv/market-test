@@ -1,7 +1,7 @@
 <template>
     <section class="task-app">
-        <img src="../assets/images/logo.png" alt="">
-        <form>
+        <form @submit.prevent="addMarketer">
+                <img src="../assets/images/logo.png" alt="">
             <h1>Create account</h1>
             <label>First name
                 <input v-model="marketer.firstName" type="text">
@@ -35,10 +35,10 @@
                     ${{ range }}
                 </label>
             </div>
-                <button>Continue</button>
-        </form>
 
-        {{ marketer }}
+            <button>Submit</button>
+        </form>
+        <!-- {{ marketer }} -->
     </section>
 </template>
 
@@ -59,7 +59,6 @@ export default {
                 linkedin: '',
                 exprience: '',
                 range: 1000
-
             },
             exprienceData: ['no exprience', '0-1 years', '1-2 years', '2 or more years']
 
@@ -70,7 +69,20 @@ export default {
     },
     mounted() {
     },
-    methods: {},
+    methods: {
+        addMarketer() {
+            this.$store.dispatch({ type: 'addMarketer', marketer: JSON.parse(JSON.stringify(this.marketer)) })
+            this.marketer = {
+                firstName: '',
+                lastName: '',
+                email: '',
+                website: '',
+                linkedin: '',
+                exprience: '',
+                range: 1000
+            }
+        }
+    },
     computed: {
         range() {
             return this.marketer.range
