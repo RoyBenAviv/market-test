@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import { marketerService } from '../services/marketerService.js'
+// import { marketerService } from '../services/marketerService.js'
 
 const store = createStore({
     strict: true,
@@ -19,7 +19,7 @@ const store = createStore({
     actions: {
         async loadMarketers({ commit }) {
             try {
-                const marketers = await marketerService.query()
+                // const marketers = await marketerService.query()
                 commit({
                     type: 'setMarketers',
                     marketersToSet: marketers
