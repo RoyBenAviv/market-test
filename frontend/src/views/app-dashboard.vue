@@ -50,31 +50,30 @@ export default {
       }
     },
   },
+  marketers() {
+    return this.$store.getters.marketers;
+  },
+  mounted() {
+    // if (userService.getLoggedInUser().isAdmin) return this.$router.push('/')
+    this.loadMarketers();
+  },
+  methods: {
+    async loadMarketers() {
+      try {
+        this.isReady = false;
+        await this.$store.dispatch("loadMarketers");
+        this.isReady - true;
+      } catch (err) {
+        console.log(err);
+        throw err;
+      }
+    },
+  },
   computed: {
     marketers() {
       return this.$store.getters.marketers;
     },
-    mounted() {
-      // if (userService.getLoggedInUser().isAdmin) return this.$router.push('/')
-      this.loadMarketers();
-    },
-    methods: {
-      async loadMarketers() {
-        try {
-          this.isReady = false;
-          await this.$store.dispatch("loadMarketers");
-          this.isReady - true;
-        } catch (err) {
-          console.log(err);
-          throw err;
-        }
-      },
-    },
-    computed: {
-      marketers() {
-        return this.$store.getters.marketers;
-      },
-    },
   },
+  //   }
 };
 </script>
