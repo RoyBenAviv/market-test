@@ -32,7 +32,7 @@ const store = createStore({
     },
     async addMarketer({ commit }, { marketer }) {
       try {
-        var marketer = await marketService.add(marketer)
+        var marketer = await marketService.updateMarketer(marketer)
         commit({ type: 'addMarketer', marketer })
       } catch (err) {
         console.log(err)
