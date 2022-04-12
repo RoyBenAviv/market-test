@@ -1,25 +1,40 @@
 <template>
-
+    <section class="task-app">
+        <form>
+            <label>First name
+                <input v-model="marketer.firstName" type="email">
+            </label>
+        </form>
+    </section>
 </template>
- 
+
+
 <script>
-
 export default {
-
-    name: 'Task App',
+    name: 'task-app',
+    props: [],
+    emits: [],
+    components: {},
     data() {
         return {
+            marketer: {
+                firstName: '',
+                lastName:'',
+                email:''
+
+            },
 
         }
     },
-    methods: {
+    created() {
+
     },
+    mounted() {
+    },
+    methods: {},
     computed: {
     },
-    components: {
-    }
+    unmounted() {
+    },
 }
 </script>
- 
-<style>
-</style>
