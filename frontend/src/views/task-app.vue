@@ -22,7 +22,7 @@
                 <input v-model="marketer.linkedin" type="text">
             </label>
             <div>
-                <span>* How many years of exprience do you have with Facebook Marketing?</span>
+                <p>* How many years of exprience do you have with Facebook Marketing?</p>
                 <div class="years-options">
                     <label v-for="data in exprienceData" :key="data">
                         <input v-model="marketer.exprience" type="radio" :value="data.val">
