@@ -19,8 +19,8 @@
             <div>
                 <span>How many years of exprience do you have with Facebook Marketing?</span>
                 <label v-for="data in exprienceData" :key="data">
-                    <input v-model="marketer.exprience" type="radio" :value="data">
-                    {{ data }}
+                    <input v-model="marketer.exprience" type="radio" :value="data.val">
+                    {{ data.label }}
                 </label>
             </div>
             <div>
@@ -55,7 +55,7 @@ export default {
                 exprience: '',
                 range: 1000
             },
-            exprienceData: ['no exprience', '0-1 years', '1-2 years', '2 or more years']
+            exprienceData: [{ label: 'no exprience', val: 0 }, { label: '0-1 years', val: 1 }, { label: '1-2 years', val: 2 }, { label: '2 or more years', val: 3 }]
 
         }
     },
@@ -74,14 +74,15 @@ export default {
                 website: '',
                 linkedin: '',
                 exprience: '',
-                range: 1000
+                budget: 1000
             }
         }
     },
     computed: {
         range() {
             return this.marketer.range
-        }
+        },
+
     },
     unmounted() {
     },
