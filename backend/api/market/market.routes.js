@@ -1,11 +1,11 @@
 const express = require('express')
-const { getMarketers, getMarketerById, addMarketer } = require('./market.controller')
+const { getMarketers, getMarketerById, addMarketer, updateMarketer, removeMarketer } = require('./market.controller')
 const router = express.Router()
 
 router.get('/', getMarketers)
 router.get('/:id', getMarketerById)
 router.post('/', addMarketer)
-// router.put('/:id', updateBoard)
-// router.delete('/:id', removeBoard)
+router.put('/:id', updateMarketer)
+router.delete('/:id', removeMarketer)
 
 module.exports = router

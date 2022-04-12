@@ -26,7 +26,8 @@ async function getById(marketerId) {
 
 async function add(marketer) {
   try {
-    if(_validateEmail(marketer.email)) throw new Error('This email already submitted')
+    // if(_validateEmail(marketer.email)) throw new Error('This email already submitted')
+    console.log('marketer',marketer);
     const collection = await dbService.getCollection('marketer')
     const {ops} = await collection.insertOne(marketer)
     return ops[0]

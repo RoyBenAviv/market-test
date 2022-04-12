@@ -44,34 +44,34 @@ async function addMarketer(req, res) {
   }
 }
 
-// async function updateBoard(req, res) {
-//   try {
-//     logger.info('Backend updateBoard')
-//     const board = req.body
-//     const updatedBoard = await marketService.update(board)
-//     res.json(updatedBoard)
-//   } catch (err) {
-//     logger.error('Failed to update board', err)
-//   }
-// }
+async function updateMarketer(req, res) {
+  try {
+    logger.info('Backend updateBoard')
+    const marketer = req.body
+    const updatedMarketer = await marketService.update(marketer)
+    res.json(updatedMarketer)
+  } catch (err) {
+    logger.error('Failed to update marketer', err)
+  }
+}
 
-// async function removeBoard(req, res) {
-//   try {
-//     const boardId = req.params.id
-//     const removedId = await marketService.remove(boardId)
-//     res.send(removedId)
-//   } catch (err) {
-//     logger.error('Failed to remove board', err)
-//     res.status(500).send({ err: 'Failed to remove board' })
-//   }
-// }
+async function removeMarketer(req, res) {
+  try {
+    const marketerId = req.params.id
+    const removedId = await marketService.remove(marketerId)
+    res.send(removedId)
+  } catch (err) {
+    logger.error('Failed to remove marketer', err)
+    res.status(500).send({ err: 'Failed to remove marketer' })
+  }
+}
 
 module.exports = {
   getMarketers,
   getMarketerById,
   addMarketer,
-  // updateBoard,
-  // removeBoard,
+  updateMarketer,
+  removeMarketer,
 }
 
 function _sort(group, { sortBy }) {
