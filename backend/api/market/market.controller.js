@@ -36,6 +36,7 @@ async function getMarketerById(req, res) {
 async function addMarketer(req, res) {
   try {
     const marketer = req.body
+    console.log(marketer);
     const addedMarketer = await marketService.add(marketer)
     res.json(addedMarketer)
   } catch (err) {
