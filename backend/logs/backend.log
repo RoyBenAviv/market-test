@@ -33,5 +33,12 @@
 12/04/2022, 15:07:13 - INFO - Server is running on port: 3030
 12/04/2022, 15:07:47 - INFO - Server is running on port: 3030
 >>>>>>> ea2d80582d7e6b4a55c502692138da9eb4b7fe0c
+<<<<<<< HEAD
+12.4.2022, 15:20:06 - INFO - Server is running on port: 3030
+12.4.2022, 15:28:22 - INFO - Server is running on port: 3030
+12.4.2022, 15:33:25 - INFO - Server is running on port: 3030
+=======
 >>>>>>> 16770ea7dc1273101dc9ffd56b93d99292b446d2
 12/04/2022, 15:21:14 - INFO - Server is running on port: 3030
+12/04/2022, 15:26:23 - INFO - Server is running on port: 3030
+>>>>>>> 20ea7d7d3cc2aa08d400ed904df603f75a57df01
