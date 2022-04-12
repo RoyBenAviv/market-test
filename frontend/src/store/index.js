@@ -1,35 +1,44 @@
 import { createStore } from 'vuex'
-// import { marketerService } from '../services/marketerService.js'
+import { marketService } from '../services/marketService.js'
 
 const store = createStore({
-    strict: true,
-    state: {
-        marketers
+  strict: true,
+  state: {
+    marketers,
+  },
+  getters: {
+    marketers({ state }) {
+      return state.marketers
     },
-    getters: {
-        marketers({ state }) {
-            return state.marketers
-        }
+  },
+  mutations: {
+    setMarketers({ marketers }, { marketersToSet }) {
+      marketers = marketersToSet
     },
-    mutations: {
-        setMarketers({ marketers }, { marketersToSet }) {
-            marketers = marketersToSet
-        }
+    addMarketer(state, {marketer}) {
+        state.marketers.push(marketer)
+    }
+  },
+  actions: {
+    async loadMarketers({ commit }) {
+      try {
+        const marketers = await marketService.query()
+        commit({ type: 'setMarketers', marketersToSet: marketers })
+      } catch (err) {
+        console.log(err)
+        throw err
+      }
     },
-    actions: {
-        async loadMarketers({ commit }) {
-            try {
-                // const marketers = await marketerService.query()
-                commit({
-                    type: 'setMarketers',
-                    marketersToSet: marketers
-                })
-            } catch (err) {
-                console.log(err)
-                throw err
-            }
-        }
+    async addMarketer({ commit }, { marketer }) {
+      try {
+        var marketer = await marketService.add(marketer)
+        commit({ type: 'addMarketer', marketer })
+      } catch (err) {
+        console.log(err)
+        throw err
+      }
     },
+  },
 })
 
 export default store
