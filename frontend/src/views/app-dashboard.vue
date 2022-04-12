@@ -2,16 +2,16 @@
     <section class="dashboard">
         <table v-if="isReady">
             <thead>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Email</th>
-                <th>Website</th>
-                <th>Linkedin</th>
-                <th>Years of Experiance</th>
-                <th>Biggest campaign ($)</th>
+                <th @click="onSetSort('firstName')">First name</th>
+                <th @click="onSetSort('lastName')">Last name</th>
+                <th @click="onSetSort('email')">Email</th>
+                <th @click="onSetSort('website')">Website</th>
+                <th @click="onSetSort('linkedin')">Linkedin</th>
+                <th @click="onSetSort('experiance')">Years of Experiance</th>
+                <th @click="onSetSort('budget')">Biggest campaign ($)</th>
             </thead>
             <tbody>
-                <marketer-preview v-for="marketer in marketers" :key="marketer._id" :marketer="marketer" />
+                <marketer-preview v-for=" marketer in marketers" :key="marketer._id" :marketer="marketer" />
             </tbody>
         </table>
         <div v-else>Loading...</div>
@@ -36,7 +36,9 @@ export default {
             }
         },
         onSetSort(sortBy) {
-            // this.srot
+            console.log(sortBy)
+            if (sortBy === this.sortBy.type) this.sortBy.isAsc = !this.sortBy.isAsc
+            this.sortBy.type = sortBy
         }
     },
     data() {
