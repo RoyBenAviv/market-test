@@ -1,4 +1,7 @@
 <template>
+    <header>
+        <router-link to="dashboard">dashboard</router-link>
+    </header>
     <section class="task-app">
         <img src="../assets/images/logo.png" alt="">
         <form @submit.prevent="addMarketer">
@@ -21,10 +24,10 @@
             <div>
                 <span>How many years of exprience do you have with Facebook Marketing?</span>
                 <div>
-                <label v-for="data in exprienceData" :key="data">
-                    <input v-model="marketer.exprience" type="radio" :value="data.val">
-                    {{ data.label }}
-                </label>
+                    <label v-for="data in exprienceData" :key="data">
+                        <input v-model="marketer.exprience" type="radio" :value="data.val">
+                        {{ data.label }}
+                    </label>
                 </div>
 
             </div>
