@@ -36,7 +36,7 @@
                 </label>
             </div>
 
-            <button>Submit</button>
+            <button>Continue</button>
         </form>
         <!-- {{ marketer }} -->
     </section>
