@@ -11,7 +11,7 @@
                 <th>Biggest campaign ($)</th>
             </thead>
             <tbody>
-                <marketer-preview v-for="marketer in marketers" :key="marketer._id" @marketer="marketer" />
+                <marketer-preview v-for="marketer in marketers" :key="marketer._id" :marketer="marketer" />
             </tbody>
         </table>
         <div v-else>Loading...</div>
