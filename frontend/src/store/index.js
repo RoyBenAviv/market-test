@@ -8,12 +8,15 @@ const store = createStore({
   },
   getters: {
     marketers: (state) => ({ type, isAsc }) => {
+      console.log(state.marketers)
+      // return state.marketers
+      if (!type) return state.marketers
       return Array.from(state.marketers).autoSortObj(type, isAsc)
     },
   },
   mutations: {
-    setMarketers({ marketers }, { marketersToSet }) {
-      marketers = marketersToSet
+    setMarketers(state, { marketersToSet }) {
+      state.marketers = marketersToSet
     },
     addMarketer(state, { marketer }) {
       state.marketers.push(marketer)
@@ -23,7 +26,6 @@ const store = createStore({
     async loadMarketers({ commit }) {
       try {
         const marketers = await marketService.query()
-        console.log(marketers)
         commit({ type: 'setMarketers', marketersToSet: marketers })
       } catch (err) {
         console.log(err)
