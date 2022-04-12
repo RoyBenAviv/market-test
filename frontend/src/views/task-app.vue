@@ -1,6 +1,6 @@
 <template>
     <header>
-        <router-link to="dashboard">dashboard</router-link>
+        <router-link to="dashboard">Dashboard</router-link>
     </header>
     <section class="task-app">
         <img src="../assets/images/logo.png" alt="">
@@ -35,8 +35,9 @@
                 <p>
                     * what was the biggest campaign budget you have managed in a single month?
                 </p>
-                    <div class="input-range"><input type="range" min="1000" max="500000" v-model="marketer.range">
-                    <span class="range">${{ range }}</span></div>
+                <div class="input-range"><input type="range" min="1000" max="500000" v-model="marketer.range">
+                    <span class="range">${{ range }}</span>
+                </div>
             </div>
 
             <button>Continue</button>
