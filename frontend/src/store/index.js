@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 import { marketService } from '../services/market.service.js'
-import { utilService } from '../services/util.service.js'
+import '../services/util.service.js'
+
 const store = createStore({
   strict: true,
   state: {
@@ -8,8 +9,6 @@ const store = createStore({
   },
   getters: {
     marketers: (state) => ({ type, isAsc }) => {
-      console.log(state.marketers)
-      // return state.marketers
       if (!type) return state.marketers
       return Array.from(state.marketers).autoSortObj(type, isAsc)
     },
