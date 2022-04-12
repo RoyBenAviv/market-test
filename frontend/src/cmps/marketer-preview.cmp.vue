@@ -1,15 +1,24 @@
 <template>
-  <tr>
-    <thead>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>Website</th>
-      <th>Linkedin</th>
-      <th>Years of Experiance</th>
-      <th>Biggest campaign ($)</th>
-    </thead>
-  </tr>
+  <section class="marketer-preview">
+    <tr>
+      <td>{{ marketer.firstName }}</td>
+      <td>{{ marketer.lastName }}</td>
+      <td>{{ marketer.email }}</td>
+      <td>{{ marketer.website }}</td>
+      <td>{{ marketer.linkedin }}</td>
+      <td>{{ marketer.experience }}</td>
+      <td>{{ marketer.budget }}</td>
+      <td>{{ marketer.createdAt }}</td>
+    </tr>
+  </section>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: "marketer-preview",
+  props: {
+    marketer: Object,
+  },
+  computed: {},
+};
+</script>
