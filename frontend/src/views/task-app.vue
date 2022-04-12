@@ -9,10 +9,10 @@
             <label>First name
                 <input v-model="marketer.firstName" type="text">
             </label>
-            <label>Last name <span class="req">*</span>
+            <label>Last name 
                 <input v-model="marketer.lastName" type="text">
             </label>
-            <label>Email address
+            <label>Email address <span class="req">*</span>
                 <input v-model="marketer.email" type="email" required>
             </label>
             <label>Website
