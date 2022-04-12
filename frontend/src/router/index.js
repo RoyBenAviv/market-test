@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import addMarketer from '../cmps/add-marketer.vue'
 import appDashboard from '../cmps/app-dashboard.vue'
 const router = createRouter({
