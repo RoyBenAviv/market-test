@@ -14,7 +14,6 @@ const router = createRouter({
       name: 'dashboard',
       component: appDashboard
     }
-
   ]
 })
 
