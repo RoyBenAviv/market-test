@@ -19,16 +19,34 @@
 </template>
 
 <script>
-import marketerPreview from '../cmps/marketer-preview.cmp.vue'
+import marketerPreview from "../cmps/marketer-preview.cmp.vue"
 export default {
     components: {
-        marketerPreview
+        marketerPreview,
     },
     data() {
         return {
-            marketers,
-            isReady
+            isReady: false,
         }
+    },
+    mounted() {
+        if (userService.getLoggedInUser().isAdmin) return this.$router.push("/")
+        this.loadMarketers()
+    },
+    methods: {
+        async loadMarketers() {
+            try {
+                this.isReady = false
+                await this.$store.dispatch("loadMarketers")
+                this.isReady - true
+            } catch (err) {
+                console.log(err)
+                throw err
+            }
+        },
+    },
+    marketers() {
+        return this.$store.getters.marketers
     },
     mounted() {
         // if (userService.getLoggedInUser().isAdmin) return this.$router.push('/')
@@ -38,18 +56,19 @@ export default {
         async loadMarketers() {
             try {
                 this.isReady = false
-                await this.$store.dispatch('loadMarketers')
+                await this.$store.dispatch("loadMarketers")
                 this.isReady - true
             } catch (err) {
                 console.log(err)
                 throw err
             }
-        }
+        },
     },
     computed: {
         marketers() {
             return this.$store.getters.marketers
-        }
-    }
+        },
+    },
+    //   }
 }
 </script>
