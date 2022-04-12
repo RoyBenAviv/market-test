@@ -1,5 +1,6 @@
 <template>
-    <section class="dashboard">
+<section>
+    <section v-if="passwordChecked"  class="dashboard">
         <table v-if="isReady">
             <thead>
                 <th @click="onSetSort('firstName')">First name</th>
@@ -16,13 +17,17 @@
         </table>
         <div v-else>Loading...</div>
     </section>
+    <check-password v-else @checked="passwordChecked = true"></check-password>
+</section>
 </template>
 
 <script>
 import marketerPreview from "../cmps/marketer-preview.cmp.vue"
+import checkPassword from "../cmps/check-password.vue"
 export default {
     components: {
         marketerPreview,
+        checkPassword
     },
     methods: {
         async loadMarketers() {
@@ -47,7 +52,8 @@ export default {
             sortBy: {
                 type: '',
                 isAsc: false
-            }
+            },
+            passwordChecked: false
         }
     },
     computed: {
