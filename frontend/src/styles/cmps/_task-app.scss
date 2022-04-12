@@ -11,12 +11,19 @@
       align-self: flex-start;
     }
     label {
+        position: relative;
       @include flex(column, flex-start, flex-start);
+    }
+    .req {
+        color: red;
+        position: absolute;
+        // r;
+        left: 69px;
     }
     input[type='text'],
     input[type='email'] {
       height: 31px;
-      width: 300px;
+      width: 100%;
       border: 1px solid #a6a6a6;
       border-radius: 3px;
       margin: 5px 0 20px 0;
@@ -28,7 +35,7 @@
     margin: 20px;
     display: flex;
     flex-direction: column;
-    width: 350px;
+    width: 370px;
     margin: 20px auto;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -41,7 +48,34 @@
       padding: 8px;
       background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
   }
-  // form {
-  //     @include flex(column)
-  // }
+  p {
+      font-size: 14px;
+  }
+  .years-options {
+      input {
+          align-self: center;
+          justify-content: center;
+          margin: 5px ;
+      }
+      label {
+          padding: 5px;
+          white-space: nowrap
+      }
+      margin-bottom: 30px;
+      @include flex;
+      gap: 10px;
+  }
+  .budget {
+        margin-bottom: 15px;
+
+        .input-range {
+            @include flex;
+            margin-top: 10px;
+            gap: 8px;
+            .range {
+                font-size: 11px;
+                font-weight: 700;
+            }
+        }
+  }
 }
