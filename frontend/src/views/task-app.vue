@@ -1,7 +1,7 @@
 <template>
     <section class="task-app">
+        <img src="../assets/images/logo.png" alt="">
         <form @submit.prevent="addMarketer">
-                <img src="../assets/images/logo.png" alt="">
             <h1>Create account</h1>
             <label>First name
                 <input v-model="marketer.firstName" type="text">
