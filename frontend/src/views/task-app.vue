@@ -1,6 +1,8 @@
 <template>
     <section class="task-app">
-        <form>
+        <img src="../assets/images/logo.png" alt="">
+        <form @submit.prevent="addMarketer">
+            <h1>Create account</h1>
             <label>First name
                 <input v-model="marketer.firstName" type="text">
             </label>
@@ -18,10 +20,13 @@
             </label>
             <div>
                 <span>How many years of exprience do you have with Facebook Marketing?</span>
+                <div>
                 <label v-for="data in exprienceData" :key="data">
-                    <input v-model="marketer.exprience" type="radio" :value="data">
-                    {{ data }}
+                    <input v-model="marketer.exprience" type="radio" :value="data.val">
+                    {{ data.label }}
                 </label>
+                </div>
+
             </div>
             <div>
                 <label>
@@ -31,8 +36,8 @@
                 </label>
             </div>
 
+            <button>Continue</button>
         </form>
-        <button>Submit</button>
         <!-- {{ marketer }} -->
     </section>
 </template>
@@ -54,9 +59,8 @@ export default {
                 linkedin: '',
                 exprience: '',
                 range: 1000
-
             },
-            exprienceData: ['no exprience', '0-1 years', '1-2 years', '2 or more years']
+            exprienceData: [{ label: 'no exprience', val: 0 }, { label: '0-1 years', val: 1 }, { label: '1-2 years', val: 2 }, { label: '2 or more years', val: 3 }]
 
         }
     },
@@ -65,11 +69,25 @@ export default {
     },
     mounted() {
     },
-    methods: {},
+    methods: {
+        addMarketer() {
+            this.$store.dispatch({ type: 'addMarketer', marketer: JSON.parse(JSON.stringify(this.marketer)) })
+            this.marketer = {
+                firstName: '',
+                lastName: '',
+                email: '',
+                website: '',
+                linkedin: '',
+                exprience: '',
+                budget: 1000
+            }
+        }
+    },
     computed: {
         range() {
             return this.marketer.range
-        }
+        },
+
     },
     unmounted() {
     },

@@ -1,6 +1,5 @@
 <template>
   <section class="marketer-preview">
-    {{ marketer }}
     <tr>
       <td>{{ marketer?.firstName || "not required" }}</td>
       <td>{{ marketer?.lastName || "not required" }}</td>
@@ -21,5 +20,8 @@ export default {
     marketer: Object,
   },
   computed: {},
-};
+  created() {
+    console.log(this.marketer)
+  }
+}
 </script>
