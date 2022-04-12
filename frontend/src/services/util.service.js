@@ -10,8 +10,3 @@ Array.prototype.autoSortObj = function (objKey, isAsc) {
     if (sortType === 'string') return this.sort((a, b) => a[objKey]?.toUpperCase().localeCompare(b[objKey]?.toUpperCase()) * sortDir)
     else if (sortType === 'number') return this.sort((a, b) => a[objKey] - b[objKey] * sortDir)
 }
-
-
-export const utilService = {
-
-}
