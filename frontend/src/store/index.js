@@ -23,6 +23,7 @@ const store = createStore({
     async loadMarketers({ commit }) {
       try {
         const marketers = await marketService.query()
+        console.log(marketers)
         commit({ type: 'setMarketers', marketersToSet: marketers })
       } catch (err) {
         console.log(err)

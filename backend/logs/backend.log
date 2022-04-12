@@ -19,4 +19,19 @@
 12/04/2022, 14:55:10 - INFO - Server is running on port: 3030
 12/04/2022, 14:55:38 - INFO - Server is running on port: 3030
 12/04/2022, 14:55:44 - INFO - Backend updateBoard
+<<<<<<< HEAD
 12/04/2022, 15:05:14 - INFO - Server is running on port: 3030
+=======
+<<<<<<< HEAD
+12.4.2022, 14:59:21 - INFO - Server is running on port: 3030
+12.4.2022, 15:10:24 - INFO - Server is running on port: 3030
+12.4.2022, 15:14:51 - INFO - Server is running on port: 3030
+=======
+12/04/2022, 15:04:07 - INFO - Server is running on port: 3030
+12/04/2022, 15:04:29 - ERROR - Failed to load marketers | {}
+12/04/2022, 15:06:37 - INFO - Server is running on port: 3030
+12/04/2022, 15:07:13 - INFO - Server is running on port: 3030
+12/04/2022, 15:07:47 - INFO - Server is running on port: 3030
+>>>>>>> ea2d80582d7e6b4a55c502692138da9eb4b7fe0c
+>>>>>>> 16770ea7dc1273101dc9ffd56b93d99292b446d2
+12/04/2022, 15:21:14 - INFO - Server is running on port: 3030
