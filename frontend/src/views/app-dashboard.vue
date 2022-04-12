@@ -1,8 +1,9 @@
 <template>
     <section class="dashboard">
+        {{ marketers }}
         <table v-if="isReady">
             <thead>
-                <th>First name</th>
+                <th @click="onSetSort('firstName')">First name</th>
                 <th>Last name</th>
                 <th>Email</th>
                 <th>Website</th>
@@ -27,6 +28,10 @@ export default {
     data() {
         return {
             isReady: false,
+            sortBy: {
+                type: '',
+                isAsc: false
+            }
         }
     },
     mounted() {
@@ -37,13 +42,16 @@ export default {
         async loadMarketers() {
             try {
                 this.isReady = false
-                await this.$store.dispatch("loadMarketers")
-                this.isReady - true
+                await this.$store.dispatch('loadMarketers')
+                this.isReady = true
             } catch (err) {
                 console.log(err)
                 throw err
             }
         },
+        onSetSort(sortBy) {
+            // this.srot
+        }
     },
     marketers() {
         return this.$store.getters.marketers
@@ -66,7 +74,7 @@ export default {
     },
     computed: {
         marketers() {
-            return this.$store.getters.marketers
+            return this.$store.getters.marketers(this.sortBy)
         },
     },
     //   }
