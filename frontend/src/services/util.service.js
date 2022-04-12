@@ -1,6 +1,4 @@
 Array.prototype.autoSortObj = function (objKey, isAsc) {
-    console.log(objKey)
-    console.log(isAsc)
     if (!this.length) return
     // params:
     // objKey = the key that holds the value to sort by
